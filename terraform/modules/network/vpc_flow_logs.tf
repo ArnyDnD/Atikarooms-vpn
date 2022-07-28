@@ -5,6 +5,7 @@ resource "aws_flow_log" "flow_logs" {
   vpc_id               = aws_vpc.vpc.id
 
   destination_options {
-    file_format = "parquet"
+    file_format        = "parquet"
+    per_hour_partition = true
   }
 }
