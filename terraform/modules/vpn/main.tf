@@ -86,6 +86,7 @@ resource "aws_security_group" "this" {
     description = "Public HTTPS"
     from_port   = var.vpn_web_port
     to_port     = var.vpn_web_port
+
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
