@@ -16,6 +16,10 @@ module "adminet" {
   vpc_flow_logs_destination_s3_arn = module.vpc_flow_logs_storage.s3_bucket_arn
 }
 
+module "domains" {
+  source = "../../../modules/domains"
+}
+
 module "vpn" {
   source = "../../../modules/vpn"
 

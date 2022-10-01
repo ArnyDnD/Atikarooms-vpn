@@ -11,3 +11,7 @@ output "adminet" {
 output "vpn" {
   value = module.vpn
 }
+
+output "domains" {
+  value = module.domains
+}
