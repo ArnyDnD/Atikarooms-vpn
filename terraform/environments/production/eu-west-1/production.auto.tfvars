@@ -1,10 +1,11 @@
 # Provider
 aws_region = "eu-west-1"
 aws_default_tags = {
-  Billing           = "AR Architecture Dept"
-  Project           = "Admin Infrastructure"
-  Environment       = "Production"
-  Terraform-Managed = true
+  Billing              = "AR Architecture Dept"
+  Project              = "Admin Infrastructure"
+  Environment          = "Production"
+  Terraform-Managed    = true
+  Terraform-Repository = "https://github.com/ArnyDnD/Atikarooms-admin-services/tree/main/"
 }
 
 # Admin Networking

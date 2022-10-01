@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+    }
+  }
+}
+
 data "aws_ami" "amazon_linux_2" {
   most_recent = true
 
@@ -7,6 +15,10 @@ data "aws_ami" "amazon_linux_2" {
     name   = "name"
     values = ["amzn2-ami-kernel-5.10-hvm-*-x86_64-gp2"]
   }
+}
+
+data "aws_subnet" "selected" {
+  id = var.subnet_id
 }
 
 data "aws_region" "current" {}
@@ -22,6 +34,14 @@ resource "aws_instance" "this" {
 
     volume_type = "gp2"
     volume_size = 25
+
+    tags = {
+      Billing              = "AR Architecture Dept"
+      Project              = "VPN"
+      Environment          = "Production"
+      Terraform-Managed    = true
+      Terraform-Repository = "https://github.com/ArnyDnD/Atikarooms-admin-services/tree/main/"
+    }
   }
 
   metadata_options {
@@ -63,6 +83,9 @@ sudo systemctl enable mongod pritunl
 sudo systemctl start mongod pritunl
 EOUD
 
+  lifecycle {
+    ignore_changes = [ami]
+  }
 
   tags = {
     "Name" = "${var.app}-instance"

@@ -19,6 +19,10 @@ module "adminet" {
 module "vpn" {
   source = "../../../modules/vpn"
 
+  providers = {
+    aws = aws.vpn
+  }
+
   app          = "ar-vpn"
   vpn_port     = var.vpn_port
   vpn_web_port = var.vpn_web_port
