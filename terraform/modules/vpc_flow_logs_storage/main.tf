@@ -1,6 +1,8 @@
 data "aws_caller_identity" "current" {}
 data "aws_region" "current" {}
 
+#tfsec:ignore:aws-s3-enable-versioning
+#tfsec:ignore:aws-s3-enable-bucket-logging
 resource "aws_s3_bucket" "flow_logs" {
   bucket = "${var.app}-flow-logs-storage"
 }

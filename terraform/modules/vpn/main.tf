@@ -92,6 +92,19 @@ EOUD
   }
 }
 
+resource "aws_network_interface" "public_ip" {
+  subnet_id                 = var.subnet_id
+  ipv6_address_list_enabled = false
+  private_ip_list_enabled   = false
+
+  attachment {
+    instance     = aws_instance.this.id
+    device_index = 0
+  }
+}
+
+#tfsec:ignore:aws-ec2-no-public-ingress-sgr
+#tfsec:ignore:aws-ec2-no-public-egress-sgr
 resource "aws_security_group" "this" {
   name        = "${var.app}-security-group"
   description = "Security group of the VPN Node"
