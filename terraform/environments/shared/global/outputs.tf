@@ -10,3 +10,7 @@ output "vpn" {
 output "domains" {
   value = module.domains
 }
+
+output "reusable_iam_roles" {
+  value = module.reusable_iam_roles
+}

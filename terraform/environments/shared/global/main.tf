@@ -20,6 +20,10 @@ module "domains" {
   source = "../../../modules/domains"
 }
 
+module "reusable_iam_roles" {
+  source = "../../../modules/reusable_iam_roles"
+}
+
 module "vpn" {
   source = "../../../modules/vpn"
 
