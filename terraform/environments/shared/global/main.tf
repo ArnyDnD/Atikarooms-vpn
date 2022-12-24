@@ -20,6 +20,18 @@ module "domains" {
   source = "../../../modules/domains"
 }
 
+module "testing_certificates" {
+  source = "../../../modules/certificates"
+
+  domain = "testing.atikarooms.com"
+}
+
+module "production_certificates" {
+  source = "../../../modules/certificates"
+
+  domain = "atikarooms.com"
+}
+
 module "reusable_iam_roles" {
   source = "../../../modules/reusable_iam_roles"
 }

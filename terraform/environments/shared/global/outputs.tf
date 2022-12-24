@@ -11,6 +11,13 @@ output "domains" {
   value = module.domains
 }
 
+output "certificates_arn" {
+  value = {
+    testing    = module.testing_certificates
+    production = module.production_certificates
+  }
+}
+
 output "reusable_iam_roles" {
   value = module.reusable_iam_roles
 }
